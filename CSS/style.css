@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	background-image: url("/sampleimg/river_background.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color:aquamarine;
+}
+
+.heading
+{
+	background-color: rgba(63,63,63,0.75)
+}
+
+.sidebar
+{
+	background-color: rgba(255,255,255,0.6);
+}
+
+.sidebar-item
+{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: solid 1px #000000;
+	text-align: center;
+}
+
+.sidebar-item:hover
+{
+	background-color: rgba(255,255,255,1);
+}
+
+.footer
+{
+	background-color: #3F3F3F;
+}
