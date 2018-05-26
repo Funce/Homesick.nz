@@ -1,0 +1,3 @@
+<?php
+	//SQL dataabase stuff
+?>
