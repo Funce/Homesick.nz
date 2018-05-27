@@ -11,6 +11,18 @@ body
 	background-color:aquamarine;
 }
 
+.row 
+{
+    display: table;
+}
+
+[class*="col-"]
+{
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
 .heading
 {
 	background-color: rgba(63,63,63,0.75)
@@ -21,11 +33,16 @@ body
 	background-color: rgba(255,255,255,0.6);
 }
 
+.login
+{
+	background-color: rgba(255,255,255,0.6);
+}
+
 .sidebar-item
 {
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-bottom: solid 1px #000000;
+	border-top: solid 1px #000000;
 	text-align: center;
 }
 
