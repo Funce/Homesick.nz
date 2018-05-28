@@ -11,6 +11,26 @@ body
 	background-color:aquamarine;
 }
 
+DIV.table 
+{
+    display:table;
+}
+FORM.tr, DIV.tr
+{
+    display:table-row;
+}
+SPAN.td
+{
+    display:table-cell;
+}
+
+span.th
+{
+	dispay: table-cell;
+	font-weight: bold;
+}
+
+
 .heading
 {
 	background-color: rgba(63,63,63,0.75)
