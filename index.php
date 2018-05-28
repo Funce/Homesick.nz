@@ -42,12 +42,12 @@
   				<div class="col-sm-6 col-sm-pull-6">
 					<?php
 					$rowsPerPage = 12;
-					$query = "SELECT * FROM tbl_img JOIN tbl_users ON (img_user_id=user_id) WHERE img_status != '1'";
+					$query = "SELECT * FROM tbl_img JOIN tbl_users ON (img_user_id=user_id) WHERE img_status = '0'";
 					$get_key = "";
 					if(isset($_GET['catid']))
 					{
 						$cat_id = mysqli_real_escape_string($link, $_GET['catid']);
-						$query = "SELECT * FROM tbl_img JOIN tbl_users ON (img_user_id=user_id) WHERE img_status!= '1' AND img_cat_id='$cat_id'";
+						$query = "SELECT * FROM tbl_img JOIN tbl_users ON (img_user_id=user_id) WHERE img_status = '0' AND img_cat_id='$cat_id'";
 						$get_key = "catid=$cat_id";
 					}
 					$paging_link = getPagingLink($query, $rowsPerPage, $get_key);

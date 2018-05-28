@@ -14,7 +14,6 @@
 			if(isset($_POST['remove_x']))
 			{//image inputs use name_x and name_y as their sending
 				//set all the images that have this category to null, to be resorted by operator
-				echo "removing";
 				$cat_id = mysqli_real_escape_string($link, $_POST['cat_id']);
 				$query = "UPDATE tbl_img SET img_cat_id=NULL WHERE img_cat_id = '$cat_id'";
 				mysqli_query($link, $query);
