@@ -12,7 +12,8 @@
 				mysqli_query($link, $query);
 			}
 			if(isset($_POST['remove_x']))
-			{
+			{//image inputs use name_x and name_y as their sending
+				//set all the images that have this category to null, to be resorted by operator
 				echo "removing";
 				$cat_id = mysqli_real_escape_string($link, $_POST['cat_id']);
 				$query = "UPDATE tbl_img SET img_cat_id=NULL WHERE img_cat_id = '$cat_id'";
@@ -31,7 +32,7 @@
 ?>					
 					<form action="<?=$_SERVER["REQUEST_URI"];?>" method="post">
 					<input type="hidden" name="cat_id" value="<?=$row['cat_id'];?>">
-					<a href="<?=$_SERVER["SCRIPT_NAME"];?>?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?>&nbsp;<input type="image" style="width:15px;" name="remove" src="/img/cross.png"/></div></a>
+					<a href="/index?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?>&nbsp;<input type="image" style="width:15px;" name="remove" src="/img/cross.png"/></div></a>
 					</form>
 <?php	
 				}
@@ -55,7 +56,7 @@
 					while ($row = mysqli_fetch_assoc($result))
 					{
 ?>
-						<a href="<?=$_SERVER["SCRIPT_NAME"];?>?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?></div></a>
+						<a href="/index?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?></div></a>
 <?php	
 					}
 				}
@@ -70,7 +71,7 @@
 				while ($row = mysqli_fetch_assoc($result))
 				{
 ?>
-					<a href="<?=$_SERVER["SCRIPT_NAME"];?>?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?></div></a>
+					<a href="/index?catid=<?=$row['cat_id'];?>"><div class="sidebar-item"><?=$row['cat_name'];?></div></a>
 <?php	
 				}
 			}

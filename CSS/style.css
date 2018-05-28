@@ -69,3 +69,15 @@ span.th
 {
 	background-color: #3F3F3F;
 }
+
+/* CSS used here will be applied after bootstrap.css */ @media (min-width: 768px) {
+ .modal-dialog {
+    width: 50%!important;
+    max-width:700px;
+    max-height:80%;
+    margin: 30px auto;
+}
+.modal-dialog img {
+  max-height: 80%;
+}
+}
