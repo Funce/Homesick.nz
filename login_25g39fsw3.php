@@ -7,7 +7,6 @@
 	if(isset($_POST['logout']))
 	{
 		$_SESSION = array();
-		header("Location:".$_SERVER['REQUEST_URI']);
 	}
 
 	//See if user logging in
@@ -30,7 +29,7 @@
 					$_SESSION['user']['username'] = $row['user_name'];
 					$_SESSION['user']['id'] = $row['user_id'];
 					$_SESSION['user']['role'] = $row['user_role'];
-					$_SESSION['user']['view'] = $row['user_role'];
+					$_SESSION['user']['view'] = $rowp['user_role'];
 				}
 				else
 				{
@@ -65,8 +64,7 @@
 				$error = "Passwords don't match";
 			}
 		}
-		//Refresh the page dude
-		header("Location:".$_SERVER['REQUEST_URI']);
+		//Otherwise, ignore because theyre cheating
 	}
 	//Check if logged in
 	if(isset($_SESSION['user']))
@@ -91,31 +89,16 @@
 				$imgPath = IMG_DIR . $newName;
 				createThumbnail($tmpName, $imgPath, THUMBNAIL_WIDTH);
 				
-				$user_id = mysqli_real_escape_string($link, $_SESSION['user']['id']);
+				$username = mysqli_real_escape_string($link, $_SESSION['user']['username']);
 				
-				$query = "INSERT INTO tbl_img (img_title, img_credit, img_temp_name, img_user_id) VALUES ('$title','$credit','$newName','$user_id')";
+				$query = "INSERT INTO tbl_img (img_title, img_credit, img_temp_name, img_user_id) VALUES ('$title','$credit','$newName','$username')";
 				mysqli_query($link, $query);
 				$error = "Your image has been uploaded and is awaiting approval";
 				
 			}
 			
 		}
-		//Check for admin redirects required
-		//Check if we're changing views
-		if($_SESSION['user']['role'] == '9')
-		{
-			if(isset($_POST['view_user']))
-			{
-				$_SESSION['user']['view'] = '1';
-				header("Location:".$_SERVER['REQUEST_URI']);
-			}
-			elseif(isset($_POST['view_admin']))
-			{
-				$_SESSION['user']['view'] = '9';
-				header("Location:".$_SERVER['REQUEST_URI']);
-			}
-			
-		}
+		
 		
 		
 		
@@ -155,22 +138,8 @@
 ?>
 				<div class="bar-title"><h2>Admin Panel</h2></div>
 				<a href="dashboard"><div class="bar-item admin-link">Photo Dashboard</div></a>
-				<form action="<?=$_SERVER["REQUEST_URI"];?>" method="post">
-					<?php
-			 		if($_SESSION['user']['view'] == '9')
-					{
-?>
-					<input type="submit" name="view_user" value="View as User"/>
-<?php
-					}
-			 		elseif ($_SESSION['user']['view'] == '1')
-					{
-?>
-						<input type="submit" name="view_admin" value="View as Admin"/>
-<?php
-					}
-?>
-				</form>
+				<
+
 <?php	
 			}
 ?>
@@ -210,3 +179,7 @@
 	}
 ?>
 
+
+<?php
+echo "<mm:dwdrfml documentRoot=" . __FILE__ .">";$included_files = get_included_files();foreach ($included_files as $filename) { echo "<mm:IncludeFile path=" . $filename . " />"; } echo "</mm:dwdrfml>";
+?>

@@ -1,7 +1,10 @@
+<?php
+	include $_SERVER['DOCUMENT_ROOT']."/library/image-creation.php";
+	include "config.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<?php include("config.php");?>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Homesick.nz | </title>
@@ -15,13 +18,17 @@
 
 	<body>
 		<div class="heading container-fluid">
-			<a href="/index.php"><h1>Homesick.nz</h1></a>
+			<a href="/"><h1>Homesick.nz</h1></a>
 		</div>
-		<div class="container">
+		<div class="container-fluid">
 			<div class="row">
-				<div class="sidebar col-sm-2 col-sm-push-8"><?php include("sidebar.php");?></div>
-				<div class="login col-sm-2 col-sm-push-8"><?php include("login.php");?></div>
-  				<div class="col-sm-8 col-sm-pull-8">.col-sm-6</div>
+				<div class="white col-sm-6 col-sm-push-6">
+					<div class="row">
+						<div class="sidebar col-sm-5"><?php include("sidebar.php");?></div>
+						<div class="login col-sm-7"><?php include("login.php");?></div>
+					</div>
+				</div>
+  				<div class="col-sm-6 col-sm-pull-6">col-sm-8</div>
 			</div>
 		</div>
 		<div class="footer container-fluid">
