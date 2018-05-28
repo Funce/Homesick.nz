@@ -123,7 +123,7 @@
 ?>
 		<div class="bar-title"><h2>User Panel</h2></div>
 		<div class="bar-info">Hi, <?=$_SESSION['user']['username'];?>!</div>
-		<a href="manage"><div class="bar-item">Manage your uploaded items</div></a>
+		<!--<a href="manage"><div class="bar-item">Manage your uploaded items</div></a>-->
 		<div class="bar-info">Upload an image</div>
 		<form action="<?=$_SERVER["REQUEST_URI"];?>" method="post" enctype="multipart/form-data" autocomplete="off">
 			<table>
